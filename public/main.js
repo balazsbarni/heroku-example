@@ -2,10 +2,11 @@
 
 const button = document.querySelector('button');
 const STATUS_CODE_OK = 200;
+const URL = 'https://redditmonika.herokuapp.com/';
 
 button.addEventListener('click', e => {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:3000/users');
+  xhr.open('GET',url + 'users');
   xhr.onreadystatechange = (event) => {
     if (event.target.readyState === XMLHttpRequest.DONE && event.target.status === 200) {
       console.log(event.target.response);

@@ -1,6 +1,7 @@
 'use strict';
 
 const registerForm = document.querySelector('form');
+const URL = 'https://redditmonika.herokuapp.com/';
 
 registerForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -8,7 +9,7 @@ registerForm.addEventListener('submit', e => {
   const dataToSend = { name: username };
   const json = JSON.stringify(dataToSend);
   const xhr = new XMLHttpRequest();
-  xhr.open('POST', 'http://localhost:3000/register');
+  xhr.open('POST', URL + 'register');
   xhr.onreadystatechange = (event) => {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       myCallback(event.target.response);
@@ -16,7 +17,7 @@ registerForm.addEventListener('submit', e => {
   };
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.send(json);
-  registerForm();
+  registerForm.reset();
 });
 
 function myCallback(res) {
