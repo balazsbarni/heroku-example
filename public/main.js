@@ -6,7 +6,7 @@ const URL = 'https://redditmonika.herokuapp.com/';
 
 button.addEventListener('click', e => {
   const xhr = new XMLHttpRequest();
-  xhr.open('GET',url + 'users');
+  xhr.open('GET',URL + 'users');
   xhr.onreadystatechange = (event) => {
     if (event.target.readyState === XMLHttpRequest.DONE && event.target.status === 200) {
       console.log(event.target.response);
